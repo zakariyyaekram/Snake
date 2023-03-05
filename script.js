@@ -56,7 +56,7 @@ function drawBlock(block, color) {
 
 function drawSnake() {
   for (let i = 0; i < snake.length; i++) {
-    drawBlock(snake[i], "blue");
+    drawBlock(snake[i], "hsl(" + i*10 + "deg 100% 50%)");
   }
 }
 
