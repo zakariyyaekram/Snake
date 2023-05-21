@@ -15,6 +15,12 @@ let snake = [];
 let direction = "right";
 let highScore = 0;
 let score = 0;
+let storedHighScore = window.localStorage.getItem('snakeHighScore');
+
+if(storedHighScore != null) {
+  highScore = storedHighScore;
+  highScoreDiv.innerHTML = `HighScore: ${highScore}`;
+}
 
 function keyHandler(e) {
   if (e.key === "ArrowRight" && direction !== "left") {
@@ -88,6 +94,7 @@ function moveSnake() {
     if (score > highScore) {
       highScore = score;
       highScoreDiv.innerHTML = "Highscore: " + highScore;
+      window.localStorage.setItem('snakeHighScore', highScore)
     }
   } else {
     snake.pop();
